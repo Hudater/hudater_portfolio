@@ -66,6 +66,10 @@ body {
     margin-bottom: 0;
 }
 
+.subtitle{
+    font-weight: 750;
+}
+
 /* keep the button on its own line and centered */
 .link-row {
     display: flex;

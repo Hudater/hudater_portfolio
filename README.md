@@ -1,5 +1,8 @@
 # hudater.dev
 
+> [!NOTE]
+> This is the staging branch for my portfolio site
+
 Personal portfolio and infrastructure playground for Harshit Mani Tripathi.
 
 This repository contains the source code and infrastructure configuration for hudater.dev.  

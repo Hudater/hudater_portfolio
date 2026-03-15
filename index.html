@@ -5,68 +5,447 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Harshit Mani Tripathi | DevOps & Infrastructure</title>
+    <title>Harshit Mani Tripathi | SRE &amp; Infrastructure</title>
 
     <meta name="description"
-        content="DevOps and infrastructure portfolio documenting automation pipelines, OpenTofu-managed DNS, Cloudflare Workers deployments, and systems engineering experiments." />
+        content="SRE and infrastructure portfolio. Homelab, OpenTofu, Observability, WireGuard, and systems engineering experiments by Harshit Mani Tripathi." />
 
     <link rel="canonical" href="https://hudater.dev" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Harshit Mani Tripathi | DevOps & Infrastructure" />
+    <meta property="og:title" content="Harshit Mani Tripathi | SRE & Infrastructure" />
     <meta property="og:description"
-        content="Infrastructure projects, reproducible deployments, and automation experiments." />
+        content="I automate infrastructure, observe everything, and break things on purpose." />
     <meta property="og:url" content="https://hudater.dev" />
     <meta property="og:type" content="website" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon"
-        href="https://res.cloudinary.com/djsasyvfl/image/upload/v1764407384/favicon_josj9j.ico"
-        type="image/x-icon">
+    <link rel="shortcut icon" href="https://res.cloudinary.com/djsasyvfl/image/upload/v1764407384/favicon_josj9j.ico"
+        type="image/x-icon" />
 </head>
 
 <body>
-    <main class="container">
-        <section class="card" aria-label="Portfolio transition notice">
 
-            <h1>Harshit Mani Tripathi</h1>
+    <!-- NAV -->
+    <nav class="nav" aria-label="Site navigation">
+        <a class="nav-logo" href="https://hudater.dev">hudater.dev</a>
 
-            <p class="subtitle">
-                DevOps | Infrastructure Automation | Systems Engineering
-            </p>
+        <!--
+          Checkbox must be a sibling BEFORE the label and the nav-links
+          so the CSS ~ combinator can reach both from the :checked state.
+        -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
 
-            <p>
-                hudater.dev is currently being rebuilt as a fully automated portfolio
-                provisioned using OpenTofu and deployed via Cloudflare.
-            </p>
+        <!-- hamburger icon (mobile only) -->
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation menu" role="button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
 
-            <p>
-                The previous link hub is now available at:
-            </p>
-
-            <p class="link-row">
-                <a class="btn-link" href="https://links.hudater.dev">
-                    links.hudater.dev
+        <ul class="nav-links" role="list">
+            <li><a href="#about" onclick="document.getElementById('nav-toggle').checked=false">About</a></li>
+            <li><a href="#projects" onclick="document.getElementById('nav-toggle').checked=false">Projects</a></li>
+            <li><a href="#writing" onclick="document.getElementById('nav-toggle').checked=false">Writing</a></li>
+            <li>
+                <a href="https://github.com/Hudater" target="_blank" rel="noopener" class="nav-icon-link"
+                    aria-label="GitHub profile">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+                    </svg>
                 </a>
-            </p>
-
-            <p>
-                This site will document infrastructure projects, CI/CD pipelines,
-                DNS automation, and architecture experiments.
-            </p>
-            <p class="meta">
-                DNS and domain records are declaratively managed via OpenTofu.
-            </p>
-
-            <p class="link-row">
-                <a class="btn-link"
-                    href="https://github.com/Hudater/hudater_portfolio">
-                    View Build Progress on GitHub
+            </li>
+            <li>
+                <a href="https://status.hudater.dev" target="_blank" rel="noopener" class="nav-status-link"
+                    aria-label="Infrastructure status page">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    Status
                 </a>
-            </p>
+            </li>
+        </ul>
+    </nav>
 
+    <main>
+
+        <!-- HERO -->
+        <section class="hero" aria-label="Introduction">
+            <div class="hero-inner">
+                <h1 class="hero-name anim-fade-up">Harshit Mani<br />Tripathi</h1>
+                <p class="hero-role anim-fade-up delay-1">SRE / Infrastructure Engineer</p>
+                <p class="hero-tagline anim-fade-up delay-2">
+                    I automate infrastructure, observe everything,<br class="br-desktop" />
+                    and break things on purpose.
+                </p>
+                <div class="hero-ctas anim-fade-up delay-3">
+                    <a class="btn-primary" href="https://github.com/Hudater" target="_blank" rel="noopener">
+                        View on GitHub
+                    </a>
+                    <a class="btn-ghost" href="https://blog.hudater.dev" target="_blank" rel="noopener">
+                        Read the Blog
+                    </a>
+                </div>
+            </div>
         </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="section anim-fade-up delay-4" aria-labelledby="about-heading">
+            <h2 id="about-heading" class="section-title">About</h2>
+            <div class="prose">
+                <p>
+                    I work primarily in my homelab, where I design and run infrastructure end to end.
+                    Most experiments start there before they become repeatable systems.
+                </p>
+                <p>
+                    My setup is hybrid: bare metal <strong>Proxmox</strong> on-prem connected to
+                    <strong>Oracle Cloud Infrastructure</strong> through a <strong>WireGuard mesh</strong>.
+                    I use it to test clustering, networking, identity, and observability at realistic scale.
+                </p>
+                <p>
+                    I am focused on making infrastructure <strong>boring</strong> in the best way:
+                    automated, observable, and reproducible from a clean checkout. If a fix requires
+                    repeated manual SSH steps, the system is not finished yet.
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="section anim-fade-up" aria-labelledby="skills-heading">
+            <h2 id="skills-heading" class="section-title">Skills</h2>
+            <div class="skills-groups">
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Infrastructure &amp; Cloud</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">Proxmox</li>
+                        <li class="tag">OCI</li>
+                        <li class="tag">Docker</li>
+                        <li class="tag">Linux</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">IaC &amp; Automation</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">OpenTofu</li>
+                        <li class="tag">Terraform</li>
+                        <li class="tag">Ansible</li>
+                        <li class="tag">GitHub Actions</li>
+                        <li class="tag">HashiCorp Cloud Platform</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Observability</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">Prometheus</li>
+                        <li class="tag">Grafana</li>
+                        <li class="tag">Loki</li>
+                        <li class="tag">Tempo</li>
+                        <li class="tag">Dynatrace</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Networking &amp; Identity</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">WireGuard</li>
+                        <li class="tag">Traefik</li>
+                        <li class="tag">Unbound DNS</li>
+                        <li class="tag">OPNsense</li>
+                        <li class="tag">Keycloak</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Languages</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">Go</li>
+                        <li class="tag">Python</li>
+                        <li class="tag">Bash</li>
+                        <li class="tag">JavaScript</li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">SRE</h3>
+                    <ul class="tag-list" role="list">
+                        <li class="tag">Incident Response</li>
+                        <li class="tag">Kubectl</li>
+                        <li class="tag">Kubernetes</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="section anim-fade-up" aria-labelledby="projects-heading">
+            <h2 id="projects-heading" class="section-title">Projects</h2>
+            <ol class="card-grid" role="list">
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">Hybrid Homelab Platform</h3>
+                            <span class="card-date">Oct 2021 · present</span>
+                        </div>
+                        <p class="card-desc">
+                            Proxmox and Oracle Cloud Infrastructure hybrid setup connected via a WireGuard
+                            mesh. Keycloak handles SSO across all services and the entire state is managed
+                            through OpenTofu with HCP remote state, so a full rebuild takes a single run.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Proxmox</li>
+                            <li class="tag">OCI</li>
+                            <li class="tag">WireGuard</li>
+                            <li class="tag">Keycloak</li>
+                            <li class="tag">OpenTofu</li>
+                            <li class="tag">HCP</li>
+                        </ul>
+                        <a class="card-link" href="https://blog.hudater.dev/posts/homelab/" target="_blank"
+                            rel="noopener" aria-label="Read about Hybrid Homelab Platform">
+                            Read post
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">Fully Automated k3s Cluster</h3>
+                            <span class="card-date">Mar 2025 · present</span>
+                        </div>
+                        <p class="card-desc">
+                            Three control-plane plus three worker node k3s cluster running on Proxmox VMs,
+                            automated end to end. Terraform provisions the VMs, Ansible configures the OS
+                            and bootstraps k3s, and Bash glues the handoffs together.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag">k3s</li>
+                            <li class="tag">Proxmox</li>
+                            <li class="tag">Terraform</li>
+                            <li class="tag">Ansible</li>
+                            <li class="tag">Bash</li>
+                        </ul>
+                        <a class="card-link" href="https://github.com/Hudater/infrastructure-iac/tree/main/k3s-pve"
+                            target="_blank" rel="noopener" aria-label="View k3s cluster on GitHub">
+                            View on GitHub
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">Observability Stack</h3>
+                            <span class="card-date">Apr 2025 · present</span>
+                        </div>
+                        <p class="card-desc">
+                            Full LGTM stack deployed on the homelab. Prometheus scrapes metrics, Loki
+                            aggregates logs, Tempo handles distributed traces, and Grafana ties it all
+                            into one pane with unified alerting.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Prometheus</li>
+                            <li class="tag">Grafana</li>
+                            <li class="tag">Loki</li>
+                            <li class="tag">Tempo</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">Recursive DNS Infrastructure</h3>
+                            <span class="card-date">Jul 2025 · present</span>
+                        </div>
+                        <p class="card-desc">
+                            Self-hosted Unbound recursive resolver processing roughly 500 k queries per
+                            month at a 75% cache hit rate and 40 to 80 ms p50 latency, integrated with
+                            split-horizon zones for internal service discovery.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Unbound</li>
+                            <li class="tag">DNS</li>
+                            <li class="tag">OPNsense</li>
+                            <li class="tag">Networking</li>
+                        </ul>
+                        <a class="card-link" href="https://blog.hudater.dev/posts/dns-infra/" target="_blank"
+                            rel="noopener" aria-label="Read about DNS Infrastructure">
+                            Read post
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+
+            </ol>
+        </section>
+
+        <!-- OPEN SOURCE -->
+        <section id="oss" class="section anim-fade-up" aria-labelledby="oss-heading">
+            <h2 id="oss-heading" class="section-title">Open Source</h2>
+            <ul class="card-grid" role="list">
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">Linkme SSG</h3>
+                            <span class="oss-stars" aria-label="40 plus GitHub stars">★ 40+</span>
+                        </div>
+                        <p class="card-desc">
+                            Contributed favicon support, analytics integration, Lucide icon support, and
+                            two other features to this Go-based static site generator.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag tag--accent">Go</li>
+                            <li class="tag">Open Source</li>
+                        </ul>
+                        <a class="card-link" href="https://github.com/ironicbadger/linkme/pulls?q=author%3Ahudater"
+                            target="_blank" rel="noopener" aria-label="View Linkme SSG pull requests">
+                            View PRs
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+
+                <li class="card">
+                    <div class="card-body">
+                        <div class="card-meta">
+                            <h3 class="card-title">CNCF SRE Games</h3>
+                        </div>
+                        <p class="card-desc">
+                            Participated in cloud-native incident response simulations in May 2025 and
+                            December 2025, working through real-world failure scenarios under time pressure.
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <ul class="tag-list" role="list">
+                            <li class="tag tag--accent">Incident Response</li>
+                            <li class="tag">CNCF</li>
+                        </ul>
+                        <a class="card-link"
+                            href="https://res.cloudinary.com/djsasyvfl/image/upload/v1772401644/Harshit_SRE_Games_Cert_sjrv65.pdf"
+                            target="_blank" rel="noopener" aria-label="View SRE Games certificate">
+                            View certificate
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 17L17 7M7 7h10v10" />
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- WRITING -->
+        <section id="writing" class="section anim-fade-up" aria-labelledby="writing-heading">
+            <h2 id="writing-heading" class="section-title">Writing</h2>
+            <ul class="writing-grid" role="list">
+
+                <li class="writing-card">
+                    <a href="https://blog.hudater.dev/categories/homelab/" target="_blank" rel="noopener"
+                        class="writing-card-link" aria-label="Read the Homelab Series">
+                        <div class="writing-card-body">
+                            <h3 class="writing-card-title">Homelab Series</h3>
+                            <p class="writing-card-blurb">
+                                Building and running a hybrid on-prem plus cloud homelab from scratch.
+                            </p>
+                        </div>
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Infrastructure</li>
+                            <li class="tag">Proxmox</li>
+                            <li class="tag">OCI</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li class="writing-card">
+                    <a href="https://blog.hudater.dev/categories/networking-series/" target="_blank" rel="noopener"
+                        class="writing-card-link" aria-label="Read the Networking Series">
+                        <div class="writing-card-body">
+                            <h3 class="writing-card-title">Networking Series</h3>
+                            <p class="writing-card-blurb">
+                                Deep dives into DNS, WireGuard, OPNsense, and everything packets touch.
+                            </p>
+                        </div>
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Networking</li>
+                            <li class="tag">DNS</li>
+                            <li class="tag">WireGuard</li>
+                        </ul>
+                    </a>
+                </li>
+
+                <li class="writing-card">
+                    <a href="https://blog.hudater.dev/categories/git-series/" target="_blank" rel="noopener"
+                        class="writing-card-link" aria-label="Read the Git Internals Series">
+                        <div class="writing-card-body">
+                            <h3 class="writing-card-title">Git Internals Series</h3>
+                            <p class="writing-card-blurb">
+                                What actually happens under the hood when you run <code>git commit</code>.
+                            </p>
+                        </div>
+                        <ul class="tag-list" role="list">
+                            <li class="tag">Git Internals</li>
+                            <li class="tag">Developer Tools</li>
+                        </ul>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" aria-label="Footer">
+        <div class="footer-links">
+            <a href="mailto:harshit@hudater.dev">harshit@hudater.dev</a>
+            <a href="https://github.com/Hudater" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://blog.hudater.dev" target="_blank" rel="noopener">Blog</a>
+            <a href="https://links.hudater.dev" target="_blank" rel="noopener">Links</a>
+            <a href="https://status.hudater.dev" target="_blank" rel="noopener">Status</a>
+        </div>
+        <p class="footer-copy">
+            &copy; <span id="year"></span> Harshit Mani Tripathi
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
 </body>
 
 </html>

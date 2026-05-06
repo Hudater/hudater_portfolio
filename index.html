@@ -139,11 +139,16 @@
                     </div>
                     <span class="experience-date">March 2026 · Present</span>
                     <ul class="experience-bullets" role="list">
-                        <li>Built a Kubernetes-based developer platform POC on AWS EKS using Terraform and Helm,
-                            provisioning isolated workspaces for 100+ users</li>
-                        <li>Debugged a silent PVC failure traced to missing IRSA permissions on the EBS CSI driver</li>
-                        <li>Refactored Terraform modules to decouple cluster infrastructure from application layer</li>
-                        <li>Work across AWS, Kubernetes, and infrastructure-as-code daily</li>
+                        <li>Built and scaled a fully automated multi-tenant developer platform on AWS EKS using
+                            Terraform, Helm, Kubernetes, and Karpenter for dynamic node provisioning</li>
+                        <li>Developed RESTful APIs in FastAPI (Python) enabling full automation of workspace lifecycle,
+                            including remote code execution and snapshot-based recovery</li>
+                        <li>Partnered with backend team to define API contracts and system workflows, ensuring seamless
+                            orchestration across services</li>
+                        <li>Reduced storage cost by ~80% by shifting from always-on PVC (EBS gp3) to snapshot-based
+                            container image storage on S3-backed registries (ECR/Harbor)</li>
+                        <li>Refactored tightly coupled Terraform infrastructure after manager review into modular
+                            components, improving scalability and long-term maintainability</li>
                     </ul>
                 </li>
             </ol>
@@ -155,13 +160,23 @@
             <div class="skills-groups">
 
                 <div class="skill-group">
-                    <h3 class="skill-group-label">Infrastructure &amp; Cloud</h3>
+                    <h3 class="skill-group-label">Cloud &amp; Infrastructure</h3>
                     <ul class="tag-list" role="list">
-                        <li><button type="button" class="tag tag-button">Proxmox</button></li>
-                        <li><button type="button" class="tag tag-button">OCI</button></li>
                         <li><button type="button" class="tag tag-button">AWS</button></li>
-                        <li><button type="button" class="tag tag-button">Docker</button></li>
+                        <li><button type="button" class="tag tag-button">Oracle Cloud (OCI)</button></li>
+                        <li><button type="button" class="tag tag-button">HCP</button></li>
+                        <li><button type="button" class="tag tag-button">Proxmox</button></li>
                         <li><button type="button" class="tag tag-button">Linux</button></li>
+                    </ul>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Containers &amp; Orchestration</h3>
+                    <ul class="tag-list" role="list">
+                        <li><button type="button" class="tag tag-button">Kubernetes</button></li>
+                        <li><button type="button" class="tag tag-button">Docker</button></li>
+                        <li><button type="button" class="tag tag-button">Helm</button></li>
+                        <li><button type="button" class="tag tag-button">LXC</button></li>
                     </ul>
                 </div>
 
@@ -170,51 +185,40 @@
                     <ul class="tag-list" role="list">
                         <li><button type="button" class="tag tag-button">Terraform</button></li>
                         <li><button type="button" class="tag tag-button">OpenTofu</button></li>
-                        <li><button type="button" class="tag tag-button">Helm</button></li>
                         <li><button type="button" class="tag tag-button">Ansible</button></li>
+                        <li><button type="button" class="tag tag-button">Git</button></li>
                         <li><button type="button" class="tag tag-button">GitHub Actions</button></li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <h3 class="skill-group-label">SRE &amp; Kubernetes</h3>
+                    <h3 class="skill-group-label">Languages &amp; Frameworks</h3>
                     <ul class="tag-list" role="list">
-                        <li><button type="button" class="tag tag-button">Kubernetes</button></li>
-                        <li><button type="button" class="tag tag-button">EKS</button></li>
-                        <li><button type="button" class="tag tag-button">Incident Response</button></li>
-                        <li><button type="button" class="tag tag-button">Kubectl</button></li>
+                        <li><button type="button" class="tag tag-button">Go</button></li>
+                        <li><button type="button" class="tag tag-button">Python</button></li>
+                        <li><button type="button" class="tag tag-button">FastAPI</button></li>
+                        <li><button type="button" class="tag tag-button">Bash</button></li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <h3 class="skill-group-label">Observability</h3>
+                    <h3 class="skill-group-label">Networking &amp; Security</h3>
                     <ul class="tag-list" role="list">
-                        <li><button type="button" class="tag tag-button">Prometheus</button></li>
-                        <li><button type="button" class="tag tag-button">Grafana</button></li>
-                        <li><button type="button" class="tag tag-button">Loki</button></li>
-                        <li><button type="button" class="tag tag-button">Tempo</button></li>
-                        <li><button type="button" class="tag tag-button">Dynatrace</button></li>
-                    </ul>
-                </div>
-
-                <div class="skill-group">
-                    <h3 class="skill-group-label">Networking &amp; Identity</h3>
-                    <ul class="tag-list" role="list">
+                        <li><button type="button" class="tag tag-button">VPC</button></li>
                         <li><button type="button" class="tag tag-button">WireGuard</button></li>
                         <li><button type="button" class="tag tag-button">Traefik</button></li>
-                        <li><button type="button" class="tag tag-button">Unbound DNS</button></li>
-                        <li><button type="button" class="tag tag-button">OPNsense</button></li>
+                        <li><button type="button" class="tag tag-button">Cert-Manager</button></li>
                         <li><button type="button" class="tag tag-button">Keycloak</button></li>
                     </ul>
                 </div>
 
                 <div class="skill-group">
-                    <h3 class="skill-group-label">Languages</h3>
+                    <h3 class="skill-group-label">Observability &amp; Monitoring</h3>
                     <ul class="tag-list" role="list">
-                        <li><button type="button" class="tag tag-button">Go</button></li>
-                        <li><button type="button" class="tag tag-button">Python</button></li>
-                        <li><button type="button" class="tag tag-button">Bash</button></li>
-                        <li><button type="button" class="tag tag-button">JavaScript</button></li>
+                        <li><button type="button" class="tag tag-button">Prometheus</button></li>
+                        <li><button type="button" class="tag tag-button">Grafana</button></li>
+                        <li><button type="button" class="tag tag-button">Loki</button></li>
+                        <li><button type="button" class="tag tag-button">Tempo</button></li>
                     </ul>
                 </div>
 
